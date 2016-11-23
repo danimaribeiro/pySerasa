@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from registrosDados import *
-from bloco import Bloco
+from .registrosDados import *
+from .bloco import Bloco
 
 
 class pendenciasInternas(Bloco):

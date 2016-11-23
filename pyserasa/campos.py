@@ -7,5 +7,3 @@ class Campo(object):
         self._indice = indice
         self._nome = nome
         self._valor = bloco[inicio:inicio+tamanho]
-
-

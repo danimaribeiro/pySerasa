@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
-from campos import Campo
-import locale
+from .campos import Campo
+
 
 class campoData(Campo):
 
-     def __init__(self, indice, inicio, nome, bloco, tamanho):
+    def __init__(self, indice, inicio, nome, bloco, tamanho):
         self._indice = indice
         self._nome = nome
         self._valor = self.mascaraData(bloco[inicio:inicio+tamanho])
 
-
-     def mascaraData(self, valor):
+    def mascaraData(self, valor):
 
         if len(valor) < 8:
             valor = valor[0:2] + "/" + valor[2:6]

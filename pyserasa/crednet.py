@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from erros import BlocoInexistenteError
-from blocosDados import pendenciasInternas
-from blocosDados import pendenciasFinanceiras
-from blocosDados import protestosEstados
-from blocosDados import chequesSemFundos
+from .blocosDados import pendenciasInternas
+from .blocosDados import pendenciasFinanceiras
+from .blocosDados import protestosEstados
+from .blocosDados import chequesSemFundos
 
 
 class Crednet(object):
@@ -17,44 +16,44 @@ class Crednet(object):
     def __getattr__(self, name):
         bloco = ([c for c in self.blocos if c.nome == name] or [None])[0]
         if not bloco:
-            print BlocoInexistenteError().exibirErro(name)
+            raise 'Este bloco ' + name + ' não existe.'
         else:
             if bloco.nome == 'pendenciasInternas':
-                print bloco.nome_bloco + "\n"
+                print(bloco.nome_bloco + "\n")
                 for registro in bloco.blocos:
                     for campos in registro.campos.campos:
-                        print campos._nome,
-                        print ": ",
-                        print campos._valor
+                        print(campos._nome),
+                        print(": "),
+                        print(campos._valor)
 
-                    print " "
+                    print(" ")
             if bloco.nome == 'pendenciasFinanceiras':
-                print bloco.nome_bloco + "\n"
+                print(bloco.nome_bloco + "\n")
                 for registro in bloco.blocos:
                     for campos in registro.campos.campos:
-                        print campos._nome,
-                        print ": ",
-                        print campos._valor
+                        print(campos._nome),
+                        print(": "),
+                        print(campos._valor)
 
-                    print " "
+                    print(" ")
             if bloco.nome == 'protestosEstados':
-                print bloco.nome_bloco + "\n"
+                print(bloco.nome_bloco + "\n")
                 for registro in bloco.blocos:
                     for campos in registro.campos.campos:
-                        print campos._nome,
-                        print ": ",
-                        print campos._valor
+                        print(campos._nome),
+                        print(": "),
+                        print(campos._valor)
 
-                    print " "
+                    print(" ")
             if bloco.nome == 'chequesSemFundos':
-                print bloco.nome_bloco + "\n"
+                print(bloco.nome_bloco + "\n")
                 for registro in bloco.blocos:
                     for campos in registro.campos.campos:
-                        print campos._nome,
-                        print ": ",
-                        print campos._valor
+                        print(campos._nome),
+                        print(": "),
+                        print(campos._valor)
 
-                    print " "
+                    print(" ")
             else:
                 return bloco
 

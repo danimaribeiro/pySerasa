@@ -1,5 +1,6 @@
-# C extensions
-*.so
+*.py[cod]
+*.swp
+*~
 
 # Distribution / packaging
 .Python
